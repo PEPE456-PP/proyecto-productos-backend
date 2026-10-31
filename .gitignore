@@ -1,0 +1,22 @@
+# Entorno virtual
+venv/
+env/
+.venv/
+
+# Variables de entorno secretas (NUNCA subir credenciales a GitHub)
+.env
+.env.*
+!.env.example
+
+# Python bytecode y caché
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
