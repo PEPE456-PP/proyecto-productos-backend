@@ -20,3 +20,12 @@ __pycache__/
 .idea/
 *.swp
 *.swo
+
+# Documentación y tareas locales
+DOCUMENTACION_COMPLETA_PROYECTO.md
+TAREA_1_TABLAS_Y_CONCEPTOS.md
+TAREA_2_CONCEPTOS_Y_HERRAMIENTAS.md
+*.md
+!README.md
+
+
