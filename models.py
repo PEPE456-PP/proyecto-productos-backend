@@ -37,6 +37,7 @@ class Product(Base):
 
     category = relationship("Category", back_populates="products")
     orders = relationship("Order", back_populates="product")
+    sale_items = relationship("SaleItem", back_populates="product")
 
 
 class Order(Base):
@@ -58,3 +59,42 @@ class Order(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     product = relationship("Product", back_populates="orders")
+
+
+class Sale(Base):
+    __tablename__ = "sales"
+
+    id = Column(Integer, primary_key=True, index=True)
+    invoice_number = Column(String, unique=True, index=True, nullable=False)
+    authorization_code = Column(String, nullable=True)
+    control_code = Column(String, nullable=True)
+    customer_name = Column(String, nullable=False)
+    customer_nit = Column(String, nullable=False)
+    customer_email = Column(String, nullable=True)
+    customer_phone = Column(String, nullable=True)
+    payment_method = Column(String, default="Efectivo")
+    amount_paid = Column(Float, nullable=True)
+    change_amount = Column(Float, nullable=True)
+    subtotal = Column(Float, nullable=False)
+    discount = Column(Float, default=0.0)
+    total = Column(Float, nullable=False)
+    status = Column(String, default="emitida")
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    items = relationship("SaleItem", back_populates="sale", cascade="all, delete-orphan")
+
+
+class SaleItem(Base):
+    __tablename__ = "sale_items"
+
+    id = Column(Integer, primary_key=True, index=True)
+    sale_id = Column(Integer, ForeignKey("sales.id", ondelete="CASCADE"), nullable=False)
+    product_id = Column(Integer, ForeignKey("products.id", ondelete="SET NULL"), nullable=True)
+    product_name = Column(String, nullable=False)
+    product_sku = Column(String, nullable=True)
+    quantity = Column(Integer, default=1, nullable=False)
+    unit_price = Column(Float, nullable=False)
+    subtotal = Column(Float, nullable=False)
+
+    sale = relationship("Sale", back_populates="items")
+    product = relationship("Product", back_populates="sale_items")

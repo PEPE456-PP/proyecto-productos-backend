@@ -79,3 +79,52 @@ class OrderResponse(OrderBase):
     order_number: Optional[str] = None
     created_at: Optional[datetime] = None
     model_config = ConfigDict(from_attributes=True)
+
+
+# ==================== SISTEMA REAL DE VENTAS Y FACTURACIÓN MULTI-ÍTEM ====================
+class SaleItemBase(BaseModel):
+    product_id: Optional[int] = None
+    product_name: str
+    product_sku: Optional[str] = None
+    quantity: int = 1
+    unit_price: float
+    subtotal: float
+
+class SaleItemCreate(SaleItemBase):
+    pass
+
+class SaleItemResponse(SaleItemBase):
+    id: int
+    sale_id: int
+    model_config = ConfigDict(from_attributes=True)
+
+
+class SaleCreate(BaseModel):
+    customer_name: str
+    customer_nit: str
+    customer_email: Optional[str] = None
+    customer_phone: Optional[str] = None
+    payment_method: Optional[str] = "Efectivo"
+    amount_paid: Optional[float] = None
+    discount: Optional[float] = 0.0
+    items: List[SaleItemCreate]
+
+class SaleResponse(BaseModel):
+    id: int
+    invoice_number: str
+    authorization_code: Optional[str] = None
+    control_code: Optional[str] = None
+    customer_name: str
+    customer_nit: str
+    customer_email: Optional[str] = None
+    customer_phone: Optional[str] = None
+    payment_method: str
+    amount_paid: Optional[float] = None
+    change_amount: Optional[float] = None
+    subtotal: float
+    discount: float
+    total: float
+    status: str
+    created_at: Optional[datetime] = None
+    items: List[SaleItemResponse] = []
+    model_config = ConfigDict(from_attributes=True)
