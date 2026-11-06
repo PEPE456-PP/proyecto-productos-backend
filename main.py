@@ -11,9 +11,9 @@ from database import engine, get_db
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="API de Catálogo de Productos y Ventas",
+    title="API PEPEBIKE - Catálogo de Bicicletas, E-Bikes y Accesorios",
     version="1.0.0",
-    description="Servicio Backend conectado a PostgreSQL en Supabase con Categorías, Productos y Pedidos"
+    description="Servicio Backend conectado a PostgreSQL en Supabase con Bicicletas de Montaña, E-Bikes, Cascos, Guantes, Lentes y Accesorios de Ciclismo"
 )
 
 # Habilitar CORS para permitir llamadas desde Vercel o desarrollo local
