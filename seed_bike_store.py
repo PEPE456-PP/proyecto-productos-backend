@@ -76,6 +76,7 @@ def seed():
         print("3. Registrando productos de ciclismo en Supabase...")
         products_data = [
             {
+                "id": 11,
                 "name": "Bicicleta de Montaña Trek Marlin 7 Gen 3",
                 "price": 1150.0,
                 "stock": 8,
@@ -86,10 +87,11 @@ def seed():
                 "rating": 4.9,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/bike_mtb_trek.jpg",
                 "category_id": 1,
             },
             {
+                "id": 12,
                 "name": "Bicicleta de Ruta Specialized Allez Sport",
                 "price": 1400.0,
                 "stock": 5,
@@ -100,10 +102,11 @@ def seed():
                 "rating": 4.8,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/bike_road_specialized.jpg",
                 "category_id": 1,
             },
             {
+                "id": 13,
                 "name": "E-Bike Urbana Cannondale Quick Neo SL 2",
                 "price": 2850.0,
                 "stock": 6,
@@ -114,10 +117,11 @@ def seed():
                 "rating": 4.9,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/ebike_cannondale.jpg",
                 "category_id": 2,
             },
             {
+                "id": 14,
                 "name": "E-Bike Todoterreno Specialized Turbo Levo Alloy",
                 "price": 5200.0,
                 "stock": 4,
@@ -128,10 +132,11 @@ def seed():
                 "rating": 5.0,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/ebike_turbo_levo.jpg",
                 "category_id": 2,
             },
             {
+                "id": 15,
                 "name": "Casco de Ciclismo Giro Aether Spherical MIPS",
                 "price": 280.0,
                 "stock": 16,
@@ -142,10 +147,11 @@ def seed():
                 "rating": 4.9,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1559348349-86f1f65817fe?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/helmet_giro_road.jpg",
                 "category_id": 3,
             },
             {
+                "id": 16,
                 "name": "Casco Integral MTB Bell Super Air R MIPS",
                 "price": 320.0,
                 "stock": 10,
@@ -156,10 +162,11 @@ def seed():
                 "rating": 4.8,
                 "is_featured": False,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1596707328905-2e6b20625902?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/helmet_bell_fullface.jpg",
                 "category_id": 3,
             },
             {
+                "id": 17,
                 "name": "Guantes de Ciclismo Fox Racing Ranger Gel",
                 "price": 45.0,
                 "stock": 25,
@@ -170,10 +177,11 @@ def seed():
                 "rating": 4.7,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/gloves_fox_ranger.jpg",
                 "category_id": 4,
             },
             {
+                "id": 18,
                 "name": "Guantes Cortos Castelli Arenberg Gel 2",
                 "price": 55.0,
                 "stock": 18,
@@ -184,10 +192,11 @@ def seed():
                 "rating": 4.8,
                 "is_featured": False,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/gloves_castelli_road.jpg",
                 "category_id": 4,
             },
             {
+                "id": 19,
                 "name": "Lentes Deportivos Oakley Radar EV Path Prizm Road",
                 "price": 220.0,
                 "stock": 14,
@@ -198,10 +207,11 @@ def seed():
                 "rating": 4.9,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/glasses_oakley_radar.jpg",
                 "category_id": 5,
             },
             {
+                "id": 20,
                 "name": "Lentes Fotocromáticos Rockbros Polarizados UV400",
                 "price": 65.0,
                 "stock": 22,
@@ -212,10 +222,11 @@ def seed():
                 "rating": 4.6,
                 "is_featured": False,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/glasses_rockbros_photochromic.jpg",
                 "category_id": 5,
             },
             {
+                "id": 21,
                 "name": "Luz LED Inteligente Garmin Varia UT800",
                 "price": 135.0,
                 "stock": 12,
@@ -226,10 +237,11 @@ def seed():
                 "rating": 4.8,
                 "is_featured": True,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/light_garmin_varia.jpg",
                 "category_id": 6,
             },
             {
+                "id": 22,
                 "name": "Candado U-Lock Kryptonite New York Fahgettaboudit",
                 "price": 110.0,
                 "stock": 15,
@@ -240,7 +252,7 @@ def seed():
                 "rating": 4.9,
                 "is_featured": False,
                 "status": "active",
-                "image_url": "https://images.unsplash.com/photo-1576435728678-68d0fbf94e91?auto=format&fit=crop&w=800&q=80",
+                "image_url": "/images/products/lock_kryptonite_ulock.jpg",
                 "category_id": 6,
             },
         ]
@@ -259,3 +271,4 @@ def seed():
 
 if __name__ == "__main__":
     seed()
+
