@@ -37,6 +37,20 @@ class ProductBase(BaseModel):
 class ProductCreate(ProductBase):
     pass
 
+class ProductUpdate(BaseModel):
+    name: Optional[str] = None
+    price: Optional[float] = None
+    stock: Optional[int] = None
+    sku: Optional[str] = None
+    description: Optional[str] = None
+    cost_price: Optional[float] = None
+    min_stock: Optional[int] = None
+    rating: Optional[float] = None
+    is_featured: Optional[bool] = None
+    status: Optional[str] = None
+    image_url: Optional[str] = None
+    category_id: Optional[int] = None
+
 class ProductResponse(ProductBase):
     id: int
     created_at: Optional[datetime] = None

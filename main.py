@@ -73,6 +73,31 @@ def create_product(product: schemas.ProductCreate, db: Session = Depends(get_db)
     db.refresh(nuevo)
     return nuevo
 
+@app.patch("/api/v1/products/{product_id}", response_model=schemas.ProductResponse, tags=["Productos"])
+def update_product_partial(product_id: int, product_update: schemas.ProductUpdate, db: Session = Depends(get_db)):
+    """Actualiza parcialmente un producto (ej. descontar o modificar stock)."""
+    prod = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if not prod:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Producto no encontrado")
+    update_data = product_update.model_dump(exclude_unset=True)
+    for field, value in update_data.items():
+        setattr(prod, field, value)
+    db.commit()
+    db.refresh(prod)
+    return prod
+
+@app.put("/api/v1/products/{product_id}", response_model=schemas.ProductResponse, tags=["Productos"])
+def update_product_full(product_id: int, product_update: schemas.ProductCreate, db: Session = Depends(get_db)):
+    """Actualiza completamente un producto."""
+    prod = db.query(models.Product).filter(models.Product.id == product_id).first()
+    if not prod:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Producto no encontrado")
+    for field, value in product_update.model_dump().items():
+        setattr(prod, field, value)
+    db.commit()
+    db.refresh(prod)
+    return prod
+
 
 # ==================== ENDPOINTS DE PEDIDOS / VENTAS ====================
 @app.get("/api/v1/orders", response_model=List[schemas.OrderResponse], tags=["Pedidos"])
